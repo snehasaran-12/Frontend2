@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+       }
+       body{
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 15px;
+        line-height: 1.5;
+        color: #111;
+        border-top: 6px solid yellow;
+        background:
+         fixed linear-gradient(transparent,#fff 70%),
+         fixed repeating-linear-gradient(#fff,#fff 3px,transparant 1px, transparant 40px) #fff;
+         padding: 10px 55px; 
+         display: grid;
+         grid-template-columns: repeat(1,1fr);
+         grid-template-rows: auto 1fr auto auto;
+         grid-template-areas: 
+         " header header  header header"
+         "main main main main"
+         "sidebar sidebar sidebar sidebar"
+         "footer footer footer footer";
+         gap: 1rem;
+        min-height: 10ch;
+       }
+       @media(width>600px) {
+        body{
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas: 
+            "header header header header"
+            "main main main sidebar"
+            "footer footer footer footer";
+        }
+       }
+       .site-header{
+        grid-area: header;
+       }
+       .content{
+        grid-area: main;
+       }
+       .sidebar{
+        grid-area: sidebar;
+
+       }
+       .site-footer{
+        grid-area: footer;
+       }
+       .site-header{
+        grid-area: header;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+       }
+       .logo{
+        font-size: 1.px;
+        font-weight: 10px;
+       }
+       .site-nav-toggle{
+        font-size: 2rem;
+        border: none;
+        background-color:transparent;
+        cursor: pointer;
+       }
+       .site-nav{
+        display: flex;
+        justify-content: flex-end;
+        gap: 1.25rem;
+        display: none;
+       }
+       @media( width> 600px)
+       
+       .site-nav a{
+        font-size: 1rem;
+        font-weight: 500;
+        color: #111;
+        text-decoration: none;
+       }
+       .site-nav a:hover,.site-nav-toggle:focus-visible{
+          color: yellow;
+          outline: 1px dotted yellow;
+          outline-offset: 0.25rem;
+
+       }
+       .content{
+        grid-area: main;
+        padding: 1rem 1.5rem;
+       }
+       .sidebar{
+        grid-area: sidebar;
+        padding: 7rem;
+       }
+       .site-footer{
+        grid-area: footer;
+        padding: 1rem 3.5rem;
+       }
+       .site.header,.site-footer,.content,.sidebar{
+        background-color: #fbf4df;
+        border: 1px solid yellow;
+
+       }
+       h1{
+        font-size: 1.5rem;
+        line-height: 1.5;
+        margin-block-end: 0.25em;
+       }
+       p:not(:last-child){
+        margin-block-end: 1rem;
+       }
+       .widget{
+        width: 100%;
+        aspect-ratio: 3/0.25;
+        background-color: yellow;
+       }
+       .widget:not(:last-child){
+        margin-block-end: 1rem;
+       }
+      
+       @media all {}
+       @media screen{}
+       @media print {}
+
+
+       @media print{
+        -site-header,
+        -site-footer,
+        -content,
+        -sidebar{
+            background-color:#dbf5e7;
+            border: 1px solid #a2d6e9;
+        }
+         }
+        .widget{
+            background-color: #9be7bf;
+        }
+      
+         @media(min-width:300px){
+        .content{ 
+            background-color:#dbf5e7;
+            border: 1px solid #a2d6e9;
+        }
+    }
+       @media (max-width:500px) {
+        .content{
+            background-color:#dbf5e7 ;
+            border:  1px solid lightblue;
+        }
+         }
+         @media(max-width:500px){}
+            @media (width< 500px) {}
+
+            
+
+         
+         @media(min-width:500px){}
+            @media (width> 500px) {}
+            @media screen and (500px <width<800px){
+                .content{
+                    background-color: #dbf5e7;
+                    border: 1px solid #a2d5a9;
+                }
+            }
+
+         
+         
+         @media (orientation: landscape){
+            .site-header{
+                background-color: #dbf5e7;
+                border: 1px solid #a2d6a9;
+            }
+         }
+         
+         @media not (orientation: portrait) {}
+         
+         @media(600px < width <  800px),(orientation: portrait){}
+         @media(600px < width < 800px)or (orientation: portrait){}
+         
+
+         @media(hover: none){}
+         @media(hover: hover){}
+
+
+         @media(pointer: none){}
+           @media(pointer: coarse){}
+             @media(pointer: fine){}
+
+             @media(prefers-color-scheme: light){}
+             @media(prefers-color-scheme: dark){}
+
+             @media(prefers-reduced-motion){}
+
+         
+         
+        
+         
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">Logo</div>
+        <button class="site-nav-toggle" aria-label="Open Navigation" aria-expanded="false">
+            
+        </button>
+        <nav class="site-nav" role="navigation">
+            <a href="#" role="Home">Home</a>
+            <a href="#" role="Gallery">Gallery</a>
+            <a href="#" role="About">About</a>
+            <a href="#" role="Contact">Contact</a>
+        </nav>
+    </header>
+    <main class="content">
+        <h1>Simple Project</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis fuga, quae vero officia explicabo dicta alias amet ex, atque eveniet nesciunt aspernatur itaque officiis saepe quibusdam perferendis aperiam? Ex, dolores!
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum excepturi officia sapiente a architecto ab dicta quisquam tempore, quam quas eaque? Maiores voluptate, itaque qui similique consequatur facilis officiis harum!</p>
+   
+    </main>
+    <aside class="sidebar">
+        <div class="widget"></div>
+        <div class="widget"></div>
+    </aside>
+    <footer class="site-footer"> Footer</footer>
+    
+</body>
+</html>
+  
